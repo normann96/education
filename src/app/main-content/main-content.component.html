@@ -1,0 +1,112 @@
+<div class="container bg-light border-wrap">
+    <div class="row main-content wrap-content mx-auto">
+        <div class="top-main-content">
+            <div class="col-6 text-center">
+                <span class="top-main-content-title">Evacuation</span>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+    <div class="row wrap-content mx-auto bottom-title-main-content bg-dark">
+        <div class="col-4"><span class="text-warning product-title">Services of a tow truck in Kiev</span></div>
+        <div class="col-8"><span class="text-light product-description">Fast delivery of the tow truck in Kiev and the region within 15-30 minutes from 400 UAH.</span></div>
+    </div>
+    <div class="row center-content">
+        <div class="col-3 text-center">
+            <div class="nav-block">
+                <div class="browse-categories">
+                    <span>Browse Categories</span>
+                </div>
+                <nav class="navbar left-navbar justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/prices">Car</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/prices">Truck</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/prices">Moto</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="join-us-block">
+                <span class="join-us-block-title">Join our newsletter list to get the latest updates</span>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Email"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <button class="btn" type="submit">Join now</button>
+                <nav class="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="https://img.icons8.com/cute-clipart/64/000000/twitter.png">
+                                <span>Follow us on Twitter</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="https://img.icons8.com/officel/16/000000/facebook-new.png">
+                                <span>Become our team on Facebook</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="https://img.icons8.com/color/48/000000/linkedin.png">
+                                <span>Connect with us on LinkedIn</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="https://img.icons8.com/dusk/64/000000/send-mass-email.png">
+                                <span>Send us your email adress</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="content-section">
+                <div class="sort-section">
+                    <span class="sort-title">Sort By</span>
+                    <div class="btn-group" dropdown>
+                        <button id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle select-btn"
+                            aria-controls="dropdown-basic">
+                            Default sorting <span class="caret"></span>
+                        </button>
+                        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu"
+                            aria-labelledby="button-basic">
+                            <li role="menuitem"><a class="dropdown-item" (click)="setPage(1); sortByPrice()">Price</a></li>
+                            <li role="menuitem"><a class="dropdown-item" (click)="setPage(1); sortByName()">Name</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item-section">
+                    <span class="title-product-section">Our product</span>
+                    <div class="row d-flex justify-content-around">
+                        <div *ngFor="let item of paginatedItems">
+                            <div class="col-auto">
+                                <div class="card">
+                                    <img [src]="sanitize(setImageProfile(item.imageItem))" class="card-img-top"
+                                        alt="...">
+                                    <div class="card-body">
+                                        <p>{{item.title}}</p>
+                                        <p class="card-text">Price: {{item.price}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="justify-content-center mx-auto text-center col-6">
+                    <div class="pt-2">
+                        <pagination [totalItems]="startItems.length" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]=6></pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

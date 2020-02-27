@@ -1,0 +1,49 @@
+.top-header
+    color: white
+    
+    a
+        color: white
+        padding: 0.5rem 0 0.5rem
+
+        &:after
+            padding: 10px
+            content: '.'
+
+            &:last-child
+                content: ''
+
+    .header-contact-group
+        .phone-area
+
+            &:hover
+                cursor: pointer
+                color: blue
+
+            .fa-phone-alt
+                &:before
+                    padding-right: 10px
+                    position: relative
+                    top: 6px
+                    color: rgb(159,102,96)
+
+        .help-area
+            .fa-comment-dots
+                &:before
+                    padding-right: 10px
+                    position: relative
+                    top: 6px
+                    color: #212916
+
+    .language-btn-group
+        label
+            margin-right: 5px
+
+        #switch-ukraine-language
+            background-image: url(https://img.icons8.com/color/48/000000/ukraine.png)
+            width: 50px
+            height: 40px
+
+        #switch-english-language
+            background-image: url(https://img.icons8.com/color/48/000000/usa.png)
+            width: 50px
+            height: 40px
